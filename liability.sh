@@ -20,12 +20,9 @@ if [ ! -e keyfile ]; then
 fi
 
 # Init IPFS
-ipfs swarm connect /dns4/lighthouse.aira.life/tcp/4001/ipfs/QmdfQmbmXt6sqjZyowxPUsmvBsgSGQjm4VXrV7WGy62dv8
-if [ ! $? ]; then 
-    [ ! -x ~/.ipfs ] && ipfs init
-    ipfs daemon --enable-pubsub-experiment &
-    sleep 5
-fi
+[ ! -x ~/.ipfs ] && ipfs init
+ipfs daemon --enable-pubsub-experiment &
+sleep 5
 ipfs swarm connect /dns4/lighthouse.aira.life/tcp/4001/ipfs/QmdfQmbmXt6sqjZyowxPUsmvBsgSGQjm4VXrV7WGy62dv8
 
 # Launch liability

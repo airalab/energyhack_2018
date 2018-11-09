@@ -4,29 +4,29 @@ EnergyHack 2018 :: Robonomics workshop
 Основы ROS
 ----------
 
-1 Установите ROS на Ubuntu (на виртуальную или хост-систему) по инструкции
+1. Установите ROS на Ubuntu (на виртуальную или хост-систему) по инструкции
 ```bash
 http://wiki.ros.org/melodic/Installation/Ubuntu
 ```
 
-2 Запустите ядро
+2. Запустите ядро
 ```bash
 roscore
 ```
 
-3 Заведите виртуальную черепашку
+3. Заведите виртуальную черепашку
 ```bash
 rosrun turtlesim turtlesim_node
 ```
 Здесь `rosrun` - утилита запуска, `turtlesim` - имя пакета, `turtlesim_node` - исполнимый файл в пакете.
 
-4 Ознакомьтесь с API черепашки
+4. Ознакомьтесь с API черепашки
 ```bash
 rostopic list
 rosservice list
 ```
 
-5 Подтолкните черепашку
+5. Подтолкните черепашку
 ```bash
 rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist "linear: {x: 1.0, y: 0.0, z: 0.0}"
 ```
@@ -42,7 +42,7 @@ git clone --recursive https://github.com/airalab/energyhack_2018
 
 2. Запускаем сервис исполнения обязательств Robonomics.network
 
-> Зависимости: python3, [eth_keyfile](https://github.com/ethereum/eth-keyfile), [go-ipfs](https://dist.ipfs.io/#go-ipfs).
+> Зависимости: python3, [eth_keyfile](https://github.com/ethereum/eth-keyfile), [base58](https://github.com/keis/base58), [ipfsapi](https://github.com/ipfs/py-ipfs-api), [go-ipfs](https://dist.ipfs.io/#go-ipfs). `pip3 install eth-keyfile base58 ipfsapi`
 
 ```
 cd energyhack_2018 && ./liability.sh
@@ -55,7 +55,7 @@ rostopic pub /liability/infochan/eth/signing/offer robonomics_msgs/Offer "$(cat 
 rostopic pub /liability/infochan/eth/signing/demand robonomics_msgs/Demand "$(cat test_ask.yaml)" -1
 ```
 
-> В момент публикации важно отслеживать состояние соединения с сетью IPFS, например, так `ipfs pubsub peers energyhack2018.lighthouse.3.robonomics.eth`. Если пиры отсутствуют, необходимо выполнить переаодключение командой `ipfs swarm connect /dns4/lighthouse.aira.life/tcp/4001/ipfs/QmdfQmbmXt6sqjZyowxPUsmvBsgSGQjm4VXrV7WGy62dv8`.
+> В момент публикации важно отслеживать состояние соединения с сетью IPFS, например, так `ipfs pubsub peers energyhack2018.lighthouse.3.robonomics.eth`. Если пиры отсутствуют, необходимо выполнить переподключение командой `ipfs swarm connect /dns4/lighthouse.aira.life/tcp/4001/ipfs/QmdfQmbmXt6sqjZyowxPUsmvBsgSGQjm4VXrV7WGy62dv8`.
 
 4. Наблюдаем процесс создания нового обязательства в сети через [Etherscan](https://kovan.etherscan.io/address/0x35db9531330637e3abde2c4a5baa5cf89672f2c4).
 
@@ -77,6 +77,3 @@ rosservice call /liability/start "address: '0xB53AF1F456d1a1BE928feFDE9a9ffCB8FC
 ```
 rosservice call /liability/finish "address: '0xB53AF1F456d1a1BE928feFDE9a9ffCB8FC0eEebB' success: true"
 ```
-
-8. ...
-9. profit
