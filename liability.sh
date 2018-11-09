@@ -16,7 +16,7 @@ fi
 if [ ! -e keyfile ]; then
     PASSWORD=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | head -c32)
     echo $PASSWORD > keyfile_password_file
-    python -c "import os,eth_keyfile,json; print(json.dumps(eth_keyfile.create_keyfile_json(os.urandom(32), '$PASSWORD'.encode())))" > keyfile
+    python3 -c "import os,eth_keyfile,json; print(json.dumps(eth_keyfile.create_keyfile_json(os.urandom(32), '$PASSWORD'.encode())))" > keyfile
 fi
 
 # Init IPFS
