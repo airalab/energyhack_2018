@@ -35,3 +35,7 @@ $ rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist "linear: {x: 1.0, y: 0.0,
 Robonomics basics
 -----------------
 
+1. `./liability.sh`
+2. `rostopic pub /liability/infochan/eth/signing/offer robonomics_msgs/Offer "$(cat test_bid.yaml)" -1 &&  rostopic pub /liability/infochan/eth/signing/demand robonomics_msgs/Demand "$(cat test_ask.yaml)" -1` 
+3. `rosservice call /liability/start "address: '0xB53AF1F456d1a1BE928feFDE9a9ffCB8FC0eEebB'"`
+4. `rosservice call /liability/finish "address: '0xB53AF1F456d1a1BE928feFDE9a9ffCB8FC0eEebB' success: true"`
