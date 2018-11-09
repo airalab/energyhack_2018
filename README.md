@@ -51,6 +51,7 @@ cd energyhack_2018 && ./liability.sh
 3. Публикуем в сеть *Спрос* и *Предложение* из тестового набора 
 
 ```
+. ws/devel/setup.bash
 rostopic pub /liability/infochan/eth/signing/offer robonomics_msgs/Offer "$(cat test_bid.yaml)" -1
 rostopic pub /liability/infochan/eth/signing/demand robonomics_msgs/Demand "$(cat test_ask.yaml)" -1
 ```
