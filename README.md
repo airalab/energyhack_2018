@@ -1,1 +1,10 @@
-# energyhack_2018
+EnergyHack 2018 :: Robonomics workshop 
+======================================
+
+
+ROS basics
+----------
+
+Robonomics basics
+-----------------
+

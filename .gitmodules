@@ -1,0 +1,3 @@
+[submodule "robonomics_comm"]
+	path = robonomics_comm
+	url = https://github.com/airalab/robonomics_comm
