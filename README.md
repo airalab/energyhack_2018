@@ -45,7 +45,15 @@ git clone --recursive https://github.com/airalab/energyhack_2018
 > Зависимости: python3, [eth_keyfile](https://github.com/ethereum/eth-keyfile), [base58](https://github.com/keis/base58), [ipfsapi](https://github.com/ipfs/py-ipfs-api), [go-ipfs](https://dist.ipfs.io/#go-ipfs). `pip3 install eth-keyfile base58 ipfsapi`
 
 ```
-cd energyhack_2018 && ./liability.sh
+cd energyhack_2018
+./ipfs.sh
+```
+
+И в другом окне:
+
+```
+cd energyhack_2018
+./liability.sh
 ```
 
 3. Публикуем в сеть *Спрос* и *Предложение* из тестового набора 
